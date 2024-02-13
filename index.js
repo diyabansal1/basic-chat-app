@@ -1,12 +1,12 @@
 const express=require('express');
 const app=express();
 const http=require('http');
-const server=http.createServer(app);
+const server=http.createServer(app);  //request listener
 const path=require('path');
 const socketio=require('socket.io');
 const io=socketio(server); //object
 
-
+const users = {}
 app.use('/',express.static(path.join(__dirname,'public')));
 
 io.on('connection' , (socket)=>{
